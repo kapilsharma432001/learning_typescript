@@ -1,7 +1,9 @@
-const memoryTitle: string = "Learn TypeScript Setup";
-const importanceScore: number = 5;
-const isArchived: boolean = false;
+const username: string = "Kapil";
+const totalMemories: number = 25;
+const isPremiumUser: boolean = true;
 
-console.log(memoryTitle);
-console.log(importanceScore + 1);
-console.log(isArchived);
+console.log(`${username} has ${totalMemories} memories and is a premium user: ${isPremiumUser}`);
+
+
+
+// const totalMemoriesWrong: number = "25"; 
