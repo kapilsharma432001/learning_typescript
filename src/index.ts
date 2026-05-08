@@ -1,9 +1,10 @@
-const username: string = "Kapil";
-const totalMemories: number = 25;
-const isPremiumUser: boolean = true;
-
-console.log(`${username} has ${totalMemories} memories and is a premium user: ${isPremiumUser}`);
+const userName: string = "Kapil Sharma";
+const email: string = "kapil@example.com";
+const category: string = "learning";
 
 
 
-// const totalMemoriesWrong: number = "25"; 
+// common string operations
+console.log(userName.toUpperCase());
+console.log(email.includes("@"));
+console.log(category.length);
