@@ -1,47 +1,41 @@
-type Memory = {
-  id: number;
-  title: string;
-  category: string;
-  tags: string[];
-  importanceScore: number;
-  isArchived: boolean;
-}
-
-const memories: Memory[] = [
+type User = {
+    id: number;
+    name: string;
+    email: string;
+  };
+  
+  type Memory = {
+    id: number;
+    userId: number;
+    title: string;
+    tags: string[];
+    importanceScore: number;
+  };
+  
+  const users: User[] = [
     {
-        id: 1,
-        title: "Learn TypeScript arrays",
-        category: "learning",
-        tags: ["typescript", "frontend"],
-        importanceScore: 4,
-        isArchived: false,
-      },
-      {
-        id: 2,
-        title: "Practice DSA trees",
-        category: "interview",
-        tags: ["dsa", "trees"],
-        importanceScore: 5,
-        isArchived: false,
-      },
-      {
-        id: 3,
-        title: "Read system design notes",
-        category: "system-design",
-        tags: ["architecture", "scalability"],
-        importanceScore: 5,
-        isArchived: true,
-      },
-    ];
+      id: 1,
+      name: "Kapil",
+      email: "kapil@example.com",
+    },
+  ];
+  
+  const memories: Memory[] = [
+    {
+      id: 101,
+      userId: 1,
+      title: "Learn TypeScript objects",
+      tags: ["typescript", "objects"],
+      importanceScore: 5,
+    },
+  ];
 
-for (const memory of memories) {
-    console.log(`Memory: ${memory.title}, Category: ${memory.category}, Tags: ${memory.tags.join(", ")}, Importance: ${memory.importanceScore}, Archived: ${memory.isArchived}`);
-}
-
-const totalMemories = memories.length;
-const archiveMemories = memories.filter(memory => memory.isArchived);
-const highImportanceMemories = memories.filter(memory => memory.importanceScore >= 4);
-
-console.log(`Total Memories: ${totalMemories}`);
-console.log(`Archived Memories: ${archiveMemories.length}`);
-console.log(`High Importance Memories: ${highImportanceMemories.length}`);
+  memories.forEach((memory) => {
+    const user = users.find((user) => user.id = memory.userId);
+    if (!user){
+        return
+    }
+    console.log(`${user.name} has memory: ${memory.title}`)
+    console.log(`Tags: ${memory.tags.join(", ")}`)
+    console.log(`Importance: ${memory.importanceScore}`)
+  })
