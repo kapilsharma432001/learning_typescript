@@ -1,41 +1,26 @@
-type User = {
-    id: number;
-    name: string;
-    email: string;
-  };
-  
-  type Memory = {
-    id: number;
-    userId: number;
-    title: string;
-    tags: string[];
-    importanceScore: number;
-  };
-  
-  const users: User[] = [
-    {
-      id: 1,
-      name: "Kapil",
-      email: "kapil@example.com",
-    },
-  ];
-  
-  const memories: Memory[] = [
-    {
-      id: 101,
-      userId: 1,
-      title: "Learn TypeScript objects",
-      tags: ["typescript", "objects"],
-      importanceScore: 5,
-    },
-  ];
+type SyncStatus = "idle" | "syncing" | "success" | "failed";
 
-  memories.forEach((memory) => {
-    const user = users.find((user) => user.id = memory.userId);
-    if (!user){
-        return
-    }
-    console.log(`${user.name} has memory: ${memory.title}`)
-    console.log(`Tags: ${memory.tags.join(", ")}`)
-    console.log(`Importance: ${memory.importanceScore}`)
-  })
+type SyncInfo = {
+  status: SyncStatus;
+  lastSyncedAt: string | null;
+  errorMessage?: string;
+};
+
+const successSync: SyncInfo = {
+  status: "success",
+  lastSyncedAt: "2026-05-09T10:00:00Z",
+};
+
+const failedSync: SyncInfo = {
+  status: "failed",
+  lastSyncedAt: null,
+  errorMessage: "Network error",
+};
+
+console.log(`Sync status: ${successSync.status}`);
+console.log(`Last synced at: ${successSync.lastSyncedAt ?? "Not synced yet"}`);
+console.log("")
+
+console.log(`Sync status: ${failedSync.status}`);
+console.log(`Last synced at: ${failedSync.lastSyncedAt ?? "Not synced yet"}`);
+console.log(`Last synced at: ${failedSync.errorMessage ?? "no error"}`);
